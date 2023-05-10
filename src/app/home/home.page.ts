@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,23 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  form = {
+    username: '',
+    password: ''
+  }
+
+  constructor(
+    private router : Router
+  ) {}
+
+
+  doLogin(){
+
+    localStorage.setItem('username',this.form.username);
+    localStorage.setItem('password',this.form.password);
+
+    this.router.navigateByUrl('welcome');
+
+  }
 
 }
