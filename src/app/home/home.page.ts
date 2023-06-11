@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StorageService } from '../localStorage';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,24 +8,25 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
   form = {
     username: '',
     password: ''
   }
 
-  constructor(
-    private router : Router
-  ) {}
+  constructor(private db: StorageService, private router: Router) {
+    const username = this.db.get('username');
+    const password = this.db.get('password');
 
-
-  doLogin(){
-
-    localStorage.setItem('username',this.form.username);
-    localStorage.setItem('password',this.form.password);
-
-    this.router.navigateByUrl('welcome');
-
+    if (username && password) {
+      this.router.navigateByUrl('welcome');
+    }
   }
 
+  login(): void {
+    const { username, password } = this.form;
+    this.db.set('username', username);
+    this.db.set('password', password);
+
+    this.router.navigateByUrl('welcome');
+  }
 }

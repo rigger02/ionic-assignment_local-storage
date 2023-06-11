@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'fp-s4-ionic',
+  appName: 'Ionic-Course',
   webDir: 'www',
   bundledWebRuntime: false
 };

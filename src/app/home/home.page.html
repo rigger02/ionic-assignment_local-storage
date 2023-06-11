@@ -3,35 +3,21 @@
   <div id="container">
 
     <h1><b>Login</b></h1>
+
     <ion-item fill="outline">
       <ion-label position="floating">Username</ion-label>
-      <ion-input [(ngModel)]="form.username" [ngModelOptions]="{standalone: true}" placeholder="masukan username "></ion-input>
+      <ion-input [(ngModel)]="form.username" [ngModelOptions]="{standalone: true}" placeholder="Enter text"></ion-input>
     </ion-item>
     <br>
     <ion-item fill="outline">
       <ion-label position="floating">Password</ion-label>
-      <ion-input [(ngModel)]="form.password" [ngModelOptions]="{standalone: true}" type="password" placeholder="masukan password "></ion-input>
+      <ion-input [(ngModel)]="form.password" [ngModelOptions]="{standalone: true}" type="password"
+        placeholder="Enter text"></ion-input>
     </ion-item>
     <br>
-    <ion-button (click)="doLogin()" expand="block">LOGIN</ion-button>
+    <ion-button (click)="login()" color="primary" expand="block"><ion-icon slot="start"
+        name="key"></ion-icon>Login</ion-button>
 
   </div>
 
 </ion-content>
-
-<!-- 
-  Pada baris pertama, [(ngModel)]="form.username" 
-  digunakan untuk menghubungkan nilai input dari elemen <ion-input> dengan properti username pada objek form 
-    dalam komponen Angular yang berada di belakangnya. 
-    
-  Tanda kurung siku ganda ([]) digunakan 
-  untuk melakukan binding properti (property binding) yang menghubungkan nilai dari objek ke elemen DOM,
-
-  sedangkan tanda kurung buka dan tutup (()) digunakan 
-  untuk melakukan binding event (event binding) yang menghubungkan event dari elemen DOM ke objek.
-
-  [ngModelOptions]="{standalone: true}" 
-  adalah opsi untuk ngModel yang menentukan bahwa nilai input yang dihasilkan 
-  hanya bergantung pada nilai dari elemen <ion-input> itu sendiri, dan tidak bergantung pada elemen input lain 
-  yang mungkin ada di halaman yang sama.
- -->
